@@ -1,32 +1,29 @@
-let teams = ["team1", "team2", "team3", "team4", "team5"]
-let game = []
+let teams = ["team1", "team2", "team3", "team4"]
 
-
-let n2 = (teams.length-1)/2
-console.log(Math.ceil(n2))
 function roundRobin(teams){
-    let team1 = ""
-    let team2 = ""
-    for(let i=0; i<n2; i++){
-        team1 = teams[Math.ceil(n2-i-1)]
-        team2 = teams[Math.ceil(n2+i)]
-        console.log(team1,"vs", team2)
+
+    //creating two halfs of the toal number of teams
+    const half = Math.ceil(teams.length/2)
+    const groupA = teams.slice(0,half)
+    console.log(groupA)
+    const groupB = teams.slice(half,teams.length)
+    groupB.reverse()
+    console.log(groupB)
+
+
+    //swapping the teams
+
+    for(let i = 1; i<teams.length-1; i++){
+        groupA.splice(1,0, groupB.shift())
         
+        groupB.push(groupA.pop())
+       
     }
-    
-    
+    console.log(groupA)
+    console.log(groupB)
 
-    
+
+
 }
-
 
 roundRobin(teams)
-
-function demoRobin(teams){
-    let half = Math.ceil(teams.length/2)
-    let groupA = teams.slice(0, half)
-    let groupB = teams.slice(half, teams.length)
-    console.log(groupB.reverse())
-}
-
-demoRobin(teams)
