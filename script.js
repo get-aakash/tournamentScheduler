@@ -5,8 +5,10 @@ const tableDivEl = document.getElementById("tableDiv")
 
 generateScheduleEl.addEventListener("click", function(){
     const teams = teamInputEl.value.trim().split('\n')
+    tableDivEl.innerHTML = ""
     roundRobin(teams)   
     teamInputEl.value = ""
+    
 })
 const roundRobin = (teams)=>{
     const tournament = []
