@@ -1,3 +1,16 @@
 h3{
     text-align: center;
 }
+
+#teamInput{
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.myTextArea{
+    margin: 50px 300px 200px 400px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
