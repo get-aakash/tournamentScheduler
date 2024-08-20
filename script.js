@@ -12,7 +12,9 @@ generateScheduleEl.addEventListener("click", function(){
 })
 const roundRobin = (teams)=>{
     const tournament = []
-
+    if(teams.length%2 !== 0){
+        teams.push("bye")
+    }
     const half = Math.ceil(teams.length/2)
     const groupA = teams.slice(0, half)
     const groupB = teams.slice(half, teams.length)
@@ -34,13 +36,9 @@ const roundRobin = (teams)=>{
 
 const getRound = (groupA, groupB)=>{
     const total = []
-    groupA.forEach((element, i) => {
-        if (!groupB[i]) {
-            total.push([groupA[i], "bye"]);
-        } else {
-            total.push([groupA[i], groupB[i]]);
-        }
-    });
+    for (let i = 0; i < groupA.length; i++) {
+        total.push([groupA[i], groupB[i]]);
+    }
     return total
 }
 

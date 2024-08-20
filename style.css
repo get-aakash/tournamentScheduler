@@ -30,7 +30,7 @@ h3{
     font-size: 18px;
 }
 .myTextArea{
-    margin: 50px 300px 100px 350px;
+    margin: 50px 300px 50px 350px;
     display: flex;
     align-items: center;
     gap: 2rem;
