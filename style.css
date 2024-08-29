@@ -23,6 +23,7 @@ h3{
 }
 
 #teamInput{
+    margin-left: 200px;
     width: 400px;
     height: 100px;
     padding: 10px;
@@ -39,12 +40,11 @@ h3{
 }
 
 #tableDiv{
-    max-width: fit-content;
-    margin-inline: auto;
-    margin-top: 10px;
+    margin: 25px  auto;
+    max-width: 600px;
     background: wheat;
     color:#57657a ;
-    padding: 30px;
+    padding: 15px;
     border-radius: 5px;
     font-size: 20px;
 }

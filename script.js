@@ -2,6 +2,7 @@
 const generateScheduleEl = document.getElementById("generateSchedule")
 let teamInputEl = document.getElementById("teamInput")
 const tableDivEl = document.getElementById("tableDiv")
+const tableContainerEl = document.getElementById("tableContainer")
 
 generateScheduleEl.addEventListener("click", function(){
     const teams = teamInputEl.value.trim().split('\n')
@@ -27,8 +28,11 @@ const roundRobin = (teams)=>{
         groupB.push(groupA.pop())
         tournament.push(getRound(groupA, groupB))
     }
+ 
+        generateTable(tournament)
+    
    
-    generateTable(tournament)
+    
 
   
 
