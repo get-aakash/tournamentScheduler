@@ -19,8 +19,8 @@ button{
     width: 150px;
     font-weight: bold;
     cursor: pointer;
-    background-color: #370617;
-    color: white;
+    background-color: #ede0d4;
+    color: black;
 }
 
 #teamInput{
@@ -58,6 +58,14 @@ button{
 #buttonDiv{
     margin-top: 10px;
     margin-bottom: 20px;
+    margin-left: 80px;
     display: flex;
-    gap: 5rem;
+    align-items: center;
+}
+#deleteBtn{
+    background-color: #540804;
+    color: white;
+    padding: 5px;
+    width: 100px;
+
 }

@@ -68,26 +68,46 @@ const generateTable = (tournament) => {
 
         for (let j = 0; j < tournament[i].length; j++) {
             const row = document.createElement("tr");
+
+            //Match Cell
             const cell = document.createElement("td");
             const cellText = document.createTextNode(`${tournament[i][j][0]} vs ${tournament[i][j][1]}`);
             cell.appendChild(cellText);
             row.appendChild(cell);
-            const buttonDiv = document.createElement("div")
-            buttonDiv.setAttribute("id", "buttonDiv")
-            const editButton = document.createElement("button")
-            editButton.innerHTML = "Edit"
+
+            //Button cell
+            const buttonsCell = document.createElement("td")
+            buttonsCell.setAttribute("id", "buttonDiv")
+            // const editButton = document.createElement("button")
+            // editButton.innerHTML = "Edit"
+            // editButton.addEventListener("click",()=>{
+
+            // })
+
             const deleteButton = document.createElement("button")
+            deleteButton.setAttribute("id","deleteBtn")
             deleteButton.innerHTML = "Delete"
+            deleteButton.addEventListener("click",()=>{
+               if(window.confirm("Do you really want to delete this match?")){
+                tblBody.removeChild(row)
+               }
+            
+                
+            })
+
+            //buttonsCell.appendChild(editButton)
+            buttonsCell.appendChild(deleteButton)
+            row.appendChild(buttonsCell)
+            
+           
+
             tblBody.appendChild(row);
-            buttonDiv.appendChild(editButton);
-            buttonDiv.appendChild(deleteButton);
-            tblBody.appendChild(buttonDiv);
         }
-    }
     
     tbl.appendChild(tblBody);
     tableDivEl.appendChild(h3El)
     tableDivEl.appendChild(hrEl)
     tableDivEl.appendChild(tbl);
     tableContainerEl.appendChild(tableDivEl)
-};
+}
+}
