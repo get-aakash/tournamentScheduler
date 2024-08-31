@@ -7,7 +7,12 @@ const tableDivEl = document.createElement("div")
 tableDivEl.setAttribute("id","tableDiv")
 
 generateScheduleEl.addEventListener("click", function(){
-    const teams = teamInputEl.value.trim().split('\n')
+    const input = teamInputEl.value.trim()
+    if(input === ""){
+        alert("please eneter atleast one team")
+        return
+    }
+    let teams = input.split('\n')
     tableDivEl.innerHTML = ""
     roundRobin(teams)   
     teamInputEl.value = ""
