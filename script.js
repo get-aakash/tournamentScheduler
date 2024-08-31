@@ -1,8 +1,10 @@
 
 const generateScheduleEl = document.getElementById("generateSchedule")
 let teamInputEl = document.getElementById("teamInput")
-const tableDivEl = document.getElementById("tableDiv")
 const tableContainerEl = document.getElementById("tableContainer")
+
+const tableDivEl = document.createElement("div")
+tableDivEl.setAttribute("id","tableDiv")
 
 generateScheduleEl.addEventListener("click", function(){
     const teams = teamInputEl.value.trim().split('\n')
@@ -47,6 +49,9 @@ const getRound = (groupA, groupB)=>{
 }
 
 const generateTable = (tournament) => {
+    const h3El = document.createElement('h3')
+    const hrEl = document.createElement("hr")
+    h3El.innerHTML = "Schedule" 
     const tbl = document.createElement("table");
     const tblBody = document.createElement("tbody");
 
@@ -71,5 +76,8 @@ const generateTable = (tournament) => {
     }
 
     tbl.appendChild(tblBody);
+    tableDivEl.appendChild(h3El)
+    tableDivEl.appendChild(hrEl)
     tableDivEl.appendChild(tbl);
+    tableContainerEl.appendChild(tableDivEl)
 };
