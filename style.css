@@ -12,14 +12,15 @@ h3{
    text-align: center;
 }
 
-#generateSchedule{
+button{
     padding: 10px;
     border: none;
     border-radius: 3px;
     width: 150px;
     font-weight: bold;
     cursor: pointer;
-    color: #57657a;
+    background-color: #370617;
+    color: white;
 }
 
 #teamInput{
@@ -47,4 +48,16 @@ h3{
     padding: 15px;
     border-radius: 5px;
     font-size: 20px;
+}
+
+#table{
+    margin: 0 auto;
+}
+
+
+#buttonDiv{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5rem;
 }

@@ -53,6 +53,7 @@ const generateTable = (tournament) => {
     const hrEl = document.createElement("hr")
     h3El.innerHTML = "Schedule" 
     const tbl = document.createElement("table");
+    tbl.setAttribute("id","table")
     const tblBody = document.createElement("tbody");
 
     for (let i = 0; i < tournament.length; i++) {
@@ -71,10 +72,19 @@ const generateTable = (tournament) => {
             const cellText = document.createTextNode(`${tournament[i][j][0]} vs ${tournament[i][j][1]}`);
             cell.appendChild(cellText);
             row.appendChild(cell);
+            const buttonDiv = document.createElement("div")
+            buttonDiv.setAttribute("id", "buttonDiv")
+            const editButton = document.createElement("button")
+            editButton.innerHTML = "Edit"
+            const deleteButton = document.createElement("button")
+            deleteButton.innerHTML = "Delete"
             tblBody.appendChild(row);
+            buttonDiv.appendChild(editButton);
+            buttonDiv.appendChild(deleteButton);
+            tblBody.appendChild(buttonDiv);
         }
     }
-
+    
     tbl.appendChild(tblBody);
     tableDivEl.appendChild(h3El)
     tableDivEl.appendChild(hrEl)
