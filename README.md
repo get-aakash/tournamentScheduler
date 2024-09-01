@@ -43,3 +43,4 @@ const roundRobin = (teams) => {
 
     generateTable(tournament);
 };
+
