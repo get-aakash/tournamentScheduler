@@ -22,7 +22,7 @@ cd tournamentScheduler
 To use the scheduler, you can simply call the `roundRobin` function with an array of team names. 
 
 ### Example
-
+```javascript
 const roundRobin = (teams) => {
     const tournament = [];
     if (teams.length % 2 !== 0) {
