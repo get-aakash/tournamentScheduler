@@ -55,8 +55,14 @@ const getRound = (groupA, groupB)=>{
 
 const generateTable = (tournament) => {
     const h3El = document.createElement('h3')
+
     const hrEl = document.createElement("hr")
     h3El.innerHTML = "Schedule" 
+
+    const exportButton = document.createElement('button')
+    exportButton.innerHTML = "Export to PDF"
+    exportButton.setAttribute("id","exportBtn")
+
     const tbl = document.createElement("table");
     tbl.setAttribute("id","table")
     const tblBody = document.createElement("tbody");
@@ -83,11 +89,6 @@ const generateTable = (tournament) => {
             //Button cell
             const buttonsCell = document.createElement("td")
             buttonsCell.setAttribute("id", "buttonDiv")
-            // const editButton = document.createElement("button")
-            // editButton.innerHTML = "Edit"
-            // editButton.addEventListener("click",()=>{
-
-            // })
 
             const deleteButton = document.createElement("button")
             deleteButton.setAttribute("id","deleteBtn")
@@ -100,7 +101,6 @@ const generateTable = (tournament) => {
                 
             })
 
-            //buttonsCell.appendChild(editButton)
             buttonsCell.appendChild(deleteButton)
             row.appendChild(buttonsCell)
             
@@ -111,8 +111,54 @@ const generateTable = (tournament) => {
     
     tbl.appendChild(tblBody);
     tableDivEl.appendChild(h3El)
+    tableDivEl.appendChild(exportButton)
     tableDivEl.appendChild(hrEl)
     tableDivEl.appendChild(tbl);
     tableContainerEl.appendChild(tableDivEl)
+
 }
+
+exportToPdf()
+
+
+
+}
+
+const exportToPdf =()=>{
+    document.getElementById("exportBtn").addEventListener("click", function() {
+        console.log("Button clicked")
+        const { jsPDF } = window.jspdf; 
+        const doc = new jsPDF()
+    
+       
+        const table = document.getElementById("table");
+    
+        
+        const rows = table.querySelectorAll("tbody tr");
+        const data = [];
+    
+        rows.forEach(row => {
+            const rowData = [];
+            const cells = row.querySelectorAll("td");
+    
+            
+            cells.forEach(cell => {
+                rowData.push(cell.innerText);
+            });
+    
+            data.push(rowData);
+        });
+    
+        
+        doc.autoTable({
+            head: [['Match', 'Actions']],
+            body: data,
+            startY: 20, 
+            theme: 'grid', 
+        });
+    
+        
+        doc.save("schedule.pdf");
+    });
+
 }

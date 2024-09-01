@@ -3,7 +3,6 @@ body{
     min-height: 96vh;
     font-weight: bold;
     font-size: 30px;
-    text-align: center;
     background: linear-gradient(120deg, #4a5b75, #775017 );
     color: antiquewhite;
 }
@@ -22,9 +21,14 @@ button{
     background-color: #ede0d4;
     color: black;
 }
+#exportBtn{
+    margin-left: 222px;
+    background-color:#8b5e34 ;
+    color: white;
+}
 
 #teamInput{
-    margin-left: 200px;
+    margin-left: 180px;
     width: 400px;
     height: 100px;
     padding: 10px;
